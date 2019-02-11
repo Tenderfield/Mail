@@ -988,6 +988,7 @@ class Imap extends Base
         && strpos($headers2['content-type'], 'multipart/mixed') === 0;
 
         $format = array(
+        	'headers'       => [$headers1, $headers2],
             'id'            => $messageId,
             'parent'        => $parent,
             'topic'         => $topic,
@@ -1000,7 +1001,8 @@ class Imap extends Base
             'to'            => $recipientsTo,
             'cc'            => $recipientsCc,
             'bcc'           => $recipientsBcc,
-            'attachment'    => $attachment);
+            'attachment'    => $attachment
+        );
 
         if (trim($body) && $body != ')') {
             //get the body parts
