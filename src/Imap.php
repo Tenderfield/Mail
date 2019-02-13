@@ -904,9 +904,9 @@ class Imap extends Base
 				foreach($arrEmails as $no => $toEmail) {
 					$resToEmail = (Array)imap_rfc822_parse_headers_decode($toEmail);
 					if ($sender['email'] == $resToEmail[0]) {
-						$extraTo[] = $resToEmail;
+						$extraTo[] = $resToEmail[0];
 					} else {
-						$recipientsTo[] = $resToEmail;
+						$recipientsTo[] = $resToEmail[0];
 					}
 				}
 			}
