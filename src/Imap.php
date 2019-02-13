@@ -902,12 +902,12 @@ class Imap extends Base
 				// Parse To emails from Headers 2.
 				$arrEmails = explode(",", $headers2['to']);
 				foreach($arrEmails as $no => $toEmail) {
-					$objEmail   = imap_rfc822_parse_headers_decode($toEmail);
-					$convEmail  = $this->_parseRecepient([$objEmail]);
-					if ($sender['email'] == $convEmail[0]['email']) {
-						$extraTo[] = $convEmail[0];
+					$objEmail = imap_rfc822_parse_headers_decode($toEmail);
+					$resEmail = $this->_parseRecepient([$objEmail]);
+					if ($sender['email'] == $resEmail[0]['email']) {
+						$extraTo[] = $resEmail[0];
 					} else {
-						$recipientsTo[] = $convEmail[0];
+						$recipientsTo[] = $resEmail[0];
 					}
 				}
 			}
