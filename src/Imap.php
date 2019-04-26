@@ -1209,7 +1209,7 @@ class Imap extends Base
 	{
 		$list = array();
 		foreach ($array as $key => $value) {
-			$list[] = !is_array($value) ? $value : $this->getList($v);
+			$list[] = !is_array($value) ? $value : $this->getList($value);
 		}
 		
 		return '(' . implode(' ', $list) . ')';
